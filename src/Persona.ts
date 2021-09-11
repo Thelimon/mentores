@@ -1,8 +1,15 @@
-export class Persona {
-  public nombre: string;
-  public documento: string;
-  public telefono: string;
-  public email: string;
+interface people {
+  nombre: string;
+  documento: string;
+  telefono: string;
+  email: string;
+}
+
+export abstract class Persona implements people {
+  nombre;
+  documento;
+  telefono;
+  email;
 
   constructor(
     nombre: string,
