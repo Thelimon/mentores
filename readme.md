@@ -40,7 +40,7 @@ fundación BeeSoftLabs, Mentor a cargo del reto Roso Peñaranda.
 
 ## Stay in touch
 
-- Autor - [Santiago Cardona Suarez](https://github.com/santo7777/typescript3-mentores)
+- Autor - [Juan David Yepes](https://github.com/Thelimon)
 
 ## License
 

@@ -4,7 +4,6 @@ import { Estudiante } from "./Estudiante";
 import { Mentor } from "./Mentor";
 import { Menu } from "./Menu";
 
-//!Listas
 let listaMentores: Mentor[] = [];
 let listaEstudiantes: Estudiante[] = [];
 let listaConferencia: Conferencia[] = [];
@@ -31,7 +30,6 @@ function mentorValidacion(
         menu.close();
         process.exit();
 
-      //!Mentor
       case 1:
         const nombre = await menu.getString("Ingrese su nombre Completo");
         const documento = await menu.getString(
@@ -51,10 +49,8 @@ function mentorValidacion(
             new Mentor(nombre, documento, telefono, correo, contraseña)
           );
         }
-
         break;
 
-      // !Estudiante
       case 2:
         const nombreEstudiante = await menu.getString(
           "Ingrese su nombre Completo"
@@ -69,14 +65,12 @@ function mentorValidacion(
           "ingrese su correo Electrónico"
         );
 
-        //validacion correo Estudiante
         let validarCorreoEstudiante = listaEstudiantes.some(
           (email) => email.getEmail() === correoEstudiante
         );
         if (validarCorreoEstudiante) {
           console.log("El correo ya se encuentra registrado");
         } else {
-          //si el correo es único agrega nuevo estudiante
           listaEstudiantes.push(
             new Estudiante(
               nombreEstudiante,
@@ -89,7 +83,6 @@ function mentorValidacion(
 
         break;
 
-      //!Conferencia
       case 3:
         const validarMentorCorreo = await menu.getString(
           "Ingrese el correo del mentor"
@@ -124,8 +117,6 @@ function mentorValidacion(
           let conferenciasMentor: Conferencia[] = listaConferencia.filter(
             (e) => e.getMentor().getEmail() === validarMentorCorreo
           );
-
-          //valida si el mentor esta disponible en nueva fecha
 
           let validarFecha: boolean;
           if (validacionEmail.length != 0) {
@@ -165,7 +156,7 @@ function mentorValidacion(
         }
 
         break;
-      case 4: // REGISTRARSE ESTUDIANTE A UNA CONFERENCIA
+      case 4:
         const registrarCorreo: string = await menu.getString(
           "Ingrese su correo"
         );
@@ -218,7 +209,6 @@ function mentorValidacion(
         }
         break;
 
-      //Conferencia lista
       case 5:
         console.log(
           `Esta es la lista de conferencias ${listaConferencia.map(
@@ -228,7 +218,7 @@ function mentorValidacion(
 
         break;
 
-      case 6: // LISTA CONFERENCIA POR MENTORES
+      case 6:
         const nombreDelMentor: string = await menu.getString(
           "Escriba el nombre del mentor"
         );
@@ -246,7 +236,7 @@ function mentorValidacion(
 
         break;
 
-      case 7: // LISTA MENTORES
+      case 7:
         console.log(
           `Esta es la lista de mentores ${listaMentores.map(
             (elemento) => elemento.nombre
@@ -254,7 +244,7 @@ function mentorValidacion(
         );
         break;
 
-      case 8: // LISTA ESTUDIANTES
+      case 8:
         console.log(
           `Esta es la lista de estudiantes ${listaEstudiantes.map(
             (elemento) => elemento.nombre
@@ -262,7 +252,7 @@ function mentorValidacion(
         );
         break;
 
-      case 9: // LISTA DE ESTUDIANTES POR CONFERENCIA
+      case 9:
         const ingresarNombreConferencia: string = await menu.getString(
           "ingrese el nombre de la conferencia"
         );
